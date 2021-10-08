@@ -1,0 +1,2 @@
+DE:EnergyBars Test
+US:EnergyBars Test
