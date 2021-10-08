@@ -5,37 +5,31 @@
 #include CLNK
 
 protected func CheckAcid() {
-  if (GetMaterial() == Material("Acid"))
-  {
-    acid_resist-=2000;
-    if (acid_resist < 0)
-    {
-      if(!Random(5)) DoEnergy(-1);
-      acid_resist = 0;
-      SetGraphics("");
-    }
-    else
-    {      
-      SetGraphics("Acid");
-    }
-    UpdateBarValues();
-  }
-  else
-  {
-    SetGraphics("");
-  }
+  if (GetMaterial() == Material("Acid") && acid_resist > 0) SetGraphics("Acid");
+  else SetGraphics("");
 }
 
-protected func RegenerateAcidResist() {
+protected func UpdateAcidResist() {
   if (GetMaterial() != Material("Acid"))
   {
-    acid_resist+=50000;
+    acid_resist+=5000;
     if (acid_resist > 1000000)
     {
       acid_resist = 1000000;
     }
-    UpdateBarValues();
+  } 
+  else 
+  {
+    acid_resist-=2000;
+    if (acid_resist < 0)
+    {
+      if(!Random(10)) DoEnergy(-1);
+      acid_resist = 0;
+    }
   }
+  
+  UpdateBarValues();
+  CheckAcid();
 }
 
 

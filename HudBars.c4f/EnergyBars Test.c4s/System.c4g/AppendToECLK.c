@@ -39,10 +39,10 @@ protected func UpdateBars() {
       {name = "AcidOverlay", gfx = "S", index = 5, visible = false, hide = EBH_Empty}
     ]
   ]);
-  SetHudBarVisible("AcidOverlay", true); // visible is defined as false, just for demonstration
+  SetHudBarVisibility("AcidOverlay", true); // visible is defined as false, just for demonstration
 }
 
 protected func UpdateBarValues() {
-  SetHudBar("Acid", acid_resist);
-  SetHudBar("AcidOverlay", acid_resist);
+  SetHudBarValue("Acid", acid_resist);
+  SetHudBarValue("AcidOverlay", acid_resist);
 }
